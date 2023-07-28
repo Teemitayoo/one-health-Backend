@@ -4,11 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": " dotenv -e .env.development nodemon src/index.ts",
+    "dev": "dotenv -e .env nodemon src/index.ts",
     "test": "dotenv -e .env.test npx jest --watchAll"
   },
   "dependencies": {
-    "@types/mongoose": "^5.11.97",
     "bcrypt": "^5.1.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
@@ -26,6 +25,7 @@
     "winston": "^3.8.2"
   },
   "devDependencies": {
+    "@types/mongoose": "^5.11.97",
     "@jest/globals": "^29.5.0",
     "@types/bcrypt": "^5.0.0",
     "@types/cors": "^2.8.13",
