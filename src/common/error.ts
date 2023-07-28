@@ -61,15 +61,9 @@ export class NotFoundError extends ApiError {
   }
 }
 
-export class AuthError extends ApiError {
-  constructor(message: string) {
-    super(message, 401);
-  }
-}
-
 export class NotAuthorizedError extends ApiError {
   constructor(message:string = "Not Authorized!"){
-    super(message, 403)
+    super(message, 401)
   }
 }
 

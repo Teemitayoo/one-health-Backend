@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import cors from "cors";
 import { ErrorHandler } from './common/error';
 import { Application } from 'express';
+import { router as authRouter } from "./modules/auth/auth.router";
 
 
 const app: Application = express();
@@ -15,7 +16,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//app.use("/auth", authRouter);
+app.use("/auth", authRouter);
 
 
 

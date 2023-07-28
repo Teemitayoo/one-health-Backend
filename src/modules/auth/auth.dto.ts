@@ -1,7 +1,7 @@
 import { IsString, Matches, MinLength } from "class-validator";
 
 
-export class UserSignUpDto {
+export class SignUpDto {
     @IsString()
     username:string;
 
@@ -12,4 +12,12 @@ export class UserSignUpDto {
        at least one numeric digit, and at least one special character.',
     })
     password: string;
+}
+
+export class SignInDto {
+    @IsString()
+    username:string;
+
+    @IsString()
+    password:string;
 }
