@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import logger from '../utils/logging/winston';
+import logger from '../utils/logging/logger';
 
 export class ApiError extends Error {
   constructor(message: string, public statusCode: number, public rawErrors?: string[] | unknown) {
