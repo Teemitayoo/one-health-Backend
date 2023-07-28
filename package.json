@@ -7,7 +7,9 @@
     "dev": "dotenv -e .env nodemon src/index.ts",
     "test": "dotenv -e .env.test npx jest --watchAll",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "postinstall": "husky install"
+    }
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
