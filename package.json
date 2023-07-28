@@ -9,8 +9,11 @@
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "postinstall": "husky install"
-    }
-  },
+    },
+    "husky": {
+      "hooks": {
+        "pre-commit": "yarn lint"
+      },
   "dependencies": {
     "bcrypt": "^5.1.0",
     "class-transformer": "^0.5.1",
