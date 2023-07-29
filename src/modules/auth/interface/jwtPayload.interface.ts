@@ -1,4 +1,4 @@
 export default interface jwtPayload {
-    username: string;
-    id: string;
-  }
+  username: string;
+  id: string;
+}
