@@ -33,9 +33,9 @@ export default class AuthService {
 
   /**
    * verify that user login details is valid, If false throw an Error.
-   * Creates an access token with a set expiration time and return to the client
    * @param username
    * @param password
+   * @returns access token
    */
   async getAccessToken(username: string, password: string): Promise<string> {
     const user = await this.repository.getUser({ username });
@@ -46,19 +46,17 @@ export default class AuthService {
     if (!comparePassword) {
       throw new NotAuthorizedError('Invalid Username or Password');
     }
-    //user.id
-    const accessToken = this.createAccessToken(username);
-    return accessToken;
+    return this.createAccessToken(user);
   }
 
   /**
-   * Creates an access token from the user detail
-   * @param username
-   * @returns jwt access token
+   * Creates an access token from the user profile with a set expiration time.
+   * @param user - user profile
+   * @returns jwt access token to authenticate protected routes
    */
-  private createAccessToken(username: string): string {
+  private createAccessToken(user:IUser): string {
     const secret = process.env.JWT_SECRET as string;
-    const accessToken = jwt.sign({ username }, secret, { expiresIn: process.env.JWT_EXPIRATION_TIME });
+    const accessToken = jwt.sign({ username:user.username, id:user.id }, secret, { expiresIn: process.env.JWT_EXPIRATION_TIME });
     return accessToken;
   }
 }

@@ -2,7 +2,8 @@ import { injectable, inject } from 'inversify';
 import { IAuthService, Types } from './interface/authService.interface';
 import { Request, Response } from 'express';
 import { SignUpDto, SignInDto } from './auth.dto';
-import AuthRequest, { jwtPayload } from './interface/authRequest.interface';
+import AuthRequest from './interface/authRequest.interface';
+import jwtPayload from './interface/jwtPayload.interface';
 
 @injectable()
 export default class AuthController {

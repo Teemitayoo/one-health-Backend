@@ -1,5 +1,6 @@
 import { Response, NextFunction } from 'express';
-import AuthRequest, { jwtPayload } from '../modules/auth/interface/authRequest.interface';
+import AuthRequest from '../modules/auth/interface/authRequest.interface';
+import jwtPayload from '../modules/auth/interface/jwtPayload.interface';
 import { NotAuthorizedError } from './error';
 import jwt from 'jsonwebtoken';
 

@@ -2,7 +2,8 @@ import container from '../../di/inversify.config';
 import { Router } from 'express';
 import AuthController from './auth.controller';
 import RequestValidator from '../../common/validation';
-import { SignInDto, SignUpDto } from './auth.dto';
+import SignInDto from './dtos/sign-in.dto';
+import SignUpDto from './dtos/sign-up.dto';
 import { protect } from '../../common/auth';
 import 'express-async-errors';
 
