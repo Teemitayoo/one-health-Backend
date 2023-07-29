@@ -2,7 +2,11 @@ import { NextFunction, Request, Response } from 'express';
 import logger from '../utils/logging/logger';
 
 export class ApiError extends Error {
-  constructor(message: string, public statusCode: number, public rawErrors?: string[] | unknown) {
+  constructor(
+    message: string,
+    public statusCode: number,
+    public rawErrors?: string[] | unknown,
+  ) {
     super(message);
     Error.captureStackTrace(this, this.constructor); // captures errors from every part of the application
   }
@@ -14,14 +18,13 @@ export class ErrorHandler {
       const statusCode = err.statusCode || 500;
       let message = err.message;
       let errorStack = {};
-      if(process.env.DEBUG=="False" && statusCode == 500){
-        message = "Something went wrong, Please try again later!"
+      if (process.env.DEBUG == 'False' && statusCode == 500) {
+        message = 'Something went wrong, Please try again later!';
         logger.error(`An Error occured on the server.
          Message: ${err.message}, 
-         Stack: ${err.stack}` );
-
+         Stack: ${err.stack}`);
       }
-      if (process.env.DEBUG == "True") {
+      if (process.env.DEBUG == 'True') {
         errorStack = { stack: err.stack };
       }
 
@@ -62,25 +65,28 @@ export class NotFoundError extends ApiError {
 }
 
 export class NotAuthorizedError extends ApiError {
-  constructor(message:string = "Not Authorized!"){
-    super(message, 401)
+  constructor(message: string = 'Not Authorized!') {
+    super(message, 401);
   }
 }
 
 export class BadRequestError extends ApiError {
-  constructor(public message: string, public errors?: string[]) {
+  constructor(
+    public message: string,
+    public errors?: string[],
+  ) {
     super(message, 400, errors);
   }
 }
 
-export class InternalServerError extends ApiError{
+export class InternalServerError extends ApiError {
   constructor(public errors?: unknown) {
-    super("Internal Server Error", 500, errors);
+    super('Internal Server Error', 500, errors);
   }
 }
 
-export class ConflictError extends ApiError{
-  constructor(message:string){
-    super(message, 409)
+export class ConflictError extends ApiError {
+  constructor(message: string) {
+    super(message, 409);
   }
 }
