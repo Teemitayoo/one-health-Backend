@@ -2,8 +2,8 @@ import { injectable, inject } from 'inversify';
 import IUserRepository, { Types } from '../user/interface/userRepository.interface';
 import { BadRequestError, NotAuthorizedError } from '../../common/error';
 import * as brcypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
 import IUser from '../user/interface/user.interface';
+import { createAccessToken } from '../../utils/jwt/createToken';
 
 /**
  * This class is reponsible for managing the business logic related to Authentication
@@ -46,19 +46,8 @@ export default class AuthService {
     if (!comparePassword) {
       throw new NotAuthorizedError('Invalid Username or Password');
     }
-    return this.createAccessToken(user);
+    return createAccessToken(user);
   }
 
-  /**
-   * Creates an access token from the user profile with a set expiration time.
-   * @param user - user profile
-   * @returns jwt access token to authenticate protected routes
-   */
-  private createAccessToken(user: IUser): string {
-    const secret = process.env.JWT_SECRET as string;
-    const accessToken = jwt.sign({ username: user.username, id: user.id }, secret, {
-      expiresIn: process.env.JWT_EXPIRATION_TIME,
-    });
-    return accessToken;
-  }
+  
 }
