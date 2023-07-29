@@ -9,17 +9,15 @@ To run on a development server:
 > cd BackendInterview-Task
 > yarn install
 ```
-***
-Start your mongo database server
-Alternatively, If you have docker installed, you can start the mongo database
-with ```docker-compose up -d mongodb```
-***
-***
-Create a .env file and populate using the environment variables defined in .env.sample file.
-***
 
 ***
-To run integration Test use the command ```yarn test```
+Create a .env file and populate it using the environment variables defined in .env.sample file.
+***
+Start your Mongo database server and add the URL in the .env file.
+***
+Alternatively, If you have docker installed, you can start the Mongo database with ```docker-compose up -d mongodb``` and use the MONGO_URI in the .env.sample
+***
+To run the integration tests use the command ```yarn test```
 ***
 
 ```sh
