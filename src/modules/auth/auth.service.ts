@@ -48,6 +48,4 @@ export default class AuthService {
     }
     return createAccessToken(user);
   }
-
-  
 }
