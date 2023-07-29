@@ -18,6 +18,9 @@ with ```docker-compose up -d mongodb```
 Create a .env file and populate using the environment variables defined in .env.sample file.
 ***
 
+***
+To run integration Test use the command ```yarn test```
+***
 
 ```sh
 # start server
