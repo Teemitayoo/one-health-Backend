@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import express from 'express';
+import express, { Request, Response } from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import { ErrorHandler } from './common/error';
@@ -15,6 +15,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/auth', authRouter);
+
+// A route to health check the server
+app.use('/', (req:Request, res:Response)=>{
+    return res.status(200).json({success:true, message:"Health Check Successfull"})
+})
+
 
 app.use('*', ErrorHandler.pagenotFound());
 app.use(ErrorHandler.handle());
