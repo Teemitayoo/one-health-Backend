@@ -5,7 +5,7 @@ import { Application } from 'express';
 import { connectDB } from './utils/database/mongoSetup';
 
 class Server {
-  private port = process.env.PORT || 8000;
+  private port = process.env.PORT || 4000;
   private app: Application;
   constructor(app: Application) {
     this.app = app;

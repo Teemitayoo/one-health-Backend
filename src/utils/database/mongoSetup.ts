@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 import logger from '../logging/logger';
 import { InternalServerError } from '../../common/error';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 export const connectDB = async () => {
   try {
