@@ -17,7 +17,7 @@ const donorSchema = new Schema({
   },
   genotype: {
     type: String,
-    enum: ['AA', 'AS', null],
+    enum: ['AA', 'AS', 'SS', 'AC', 'SC', null],
     required: true,
   },
   lastDonation: {
