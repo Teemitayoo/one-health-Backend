@@ -9,8 +9,8 @@ export default interface IDonor extends Document {
   state: string;
   city: string;
   dateOfBirth: Date;
-  bloodGroup: 'A+' | 'A-' | 'B+' | 'B-' | 'AB+' | 'AB-' | 'O+' | 'O-' | null;
-  genotype: 'AA' | 'AS' | null;
+  bloodGroup: 'A+' | 'A-' | 'B+' | 'B-' | 'AB+' | 'AB-' | 'O+' | 'O-' | 'idk';
+  genotype: 'AA' | 'AS' | 'idk';
   lastDonation: string;
   followed: boolean;
   occupation: string;

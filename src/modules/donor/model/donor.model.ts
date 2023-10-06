@@ -12,12 +12,12 @@ const donorSchema = new Schema({
   dateOfBirth: { type: Date, required: true },
   bloodGroup: {
     type: String,
-    enum: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-', null],
+    enum: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-', 'idk'],
     required: true,
   },
   genotype: {
     type: String,
-    enum: ['AA', 'AS', 'SS', 'AC', 'SC', null],
+    enum: ['AA', 'AS', 'SS', 'AC', 'SC', 'idk'],
     required: true,
   },
   lastDonation: {
